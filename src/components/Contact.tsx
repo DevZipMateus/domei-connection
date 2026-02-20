@@ -20,7 +20,7 @@ const Contact = () => {
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             Entre em contato
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-foreground">
             Estamos prontos para atender sua demanda. Fale conosco e solicite um orçamento.
           </p>
         </div>

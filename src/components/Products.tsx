@@ -71,7 +71,7 @@ const Products = () => {
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             Nossos produtos
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-foreground">
             Linha completa de produtos para laboratórios e indústrias com qualidade e procedência garantidas.
           </p>
         </div>
