@@ -20,7 +20,7 @@ const About = () => {
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">
             Sobre a Domei Comercial
           </h2>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-foreground leading-relaxed">
             A Domei Comercial Ltda. iniciou suas operações em 2001, representando empresas que distribuem 
             produtos ou prestam serviços para clientes dos segmentos da indústria química, farmacêutica, 
             de bebidas, de alimentos, de mineração e acadêmicos. Comercializamos produtos químicos, biológicos 

@@ -41,7 +41,7 @@ const Services = () => {
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             Nossos serviços
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-foreground">
             Soluções técnicas especializadas para manter seus equipamentos e processos em pleno funcionamento.
           </p>
         </div>
