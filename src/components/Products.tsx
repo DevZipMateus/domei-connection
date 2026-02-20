@@ -57,7 +57,12 @@ const Products = () => {
     <section id="produtos" className="relative py-20 md:py-28 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={productsBg} alt="Reagentes químicos coloridos em frascos de laboratório" className="w-full h-full object-cover" />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          style={{ backgroundImage: `url(${productsBg})` }}
+          role="img"
+          aria-label="Reagentes químicos coloridos em frascos de laboratório"
+        />
         <div className="absolute inset-0 bg-muted/93" />
       </div>
 

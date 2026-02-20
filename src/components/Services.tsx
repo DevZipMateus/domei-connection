@@ -27,7 +27,12 @@ const Services = () => {
     <section id="servicos" className="relative py-20 md:py-28 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={servicesBg} alt="Técnica realizando manutenção em equipamento laboratorial" className="w-full h-full object-cover" />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          style={{ backgroundImage: `url(${servicesBg})` }}
+          role="img"
+          aria-label="Técnica realizando manutenção em equipamento laboratorial"
+        />
         <div className="absolute inset-0 bg-white/92" />
       </div>
 
