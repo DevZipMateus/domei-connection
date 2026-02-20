@@ -1,4 +1,5 @@
 import { FlaskConical, Droplets, Microscope, Filter, TestTubes, Beaker } from "lucide-react";
+import productsBg from "@/assets/products-bg.jpg";
 
 const products = [
   {
@@ -35,8 +36,14 @@ const products = [
 
 const Products = () => {
   return (
-    <section id="produtos" className="py-20 md:py-28 section-alt">
-      <div className="container mx-auto px-4">
+    <section id="produtos" className="relative py-20 md:py-28 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0">
+        <img src={productsBg} alt="Reagentes químicos coloridos em frascos de laboratório" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-muted/93" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             Nossos produtos
@@ -50,7 +57,7 @@ const Products = () => {
           {products.map((product) => (
             <div
               key={product.title}
-              className="bg-background border border-border rounded-lg p-7 group hover:border-foreground/20 hover:shadow-md transition-all"
+              className="bg-background/80 backdrop-blur-sm border border-border rounded-lg p-7 group hover:border-foreground/20 hover:shadow-md transition-all"
             >
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-md bg-primary/5 text-foreground mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                 <product.icon size={22} />

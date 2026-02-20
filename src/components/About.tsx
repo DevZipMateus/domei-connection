@@ -1,9 +1,16 @@
 import { Eye, Target, Gem } from "lucide-react";
+import aboutBg from "@/assets/about-bg.jpg";
 
 const About = () => {
   return (
-    <section id="sobre" className="py-20 md:py-28 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="sobre" className="relative py-20 md:py-28 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0">
+        <img src={aboutBg} alt="Microscópio em laboratório de pesquisa" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-white/92" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">
             Sobre a Domei Comercial
@@ -41,7 +48,7 @@ const About = () => {
           ].map((item) => (
             <div
               key={item.title}
-              className="bg-card border border-border rounded-lg p-8 text-center hover:shadow-md transition-shadow"
+              className="bg-background/80 backdrop-blur-sm border border-border rounded-lg p-8 text-center hover:shadow-md transition-shadow"
             >
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary text-primary-foreground mb-5">
                 <item.icon size={24} />
