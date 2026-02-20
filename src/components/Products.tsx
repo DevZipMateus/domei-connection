@@ -1,4 +1,5 @@
-import { FlaskConical, Droplets, Microscope, Filter, TestTubes, Beaker } from "lucide-react";
+import { FlaskConical, Droplets, Microscope, Filter, TestTubes, Beaker, ShoppingBag, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import productsBg from "@/assets/products-bg.jpg";
 import imgReagentes from "@/assets/product-reagentes.jpg";
 import imgFiltracao from "@/assets/product-filtracao.jpg";
@@ -107,6 +108,32 @@ const Products = () => {
             </ScrollReveal>
           ))}
         </div>
+
+        {/* Vitrine CTA */}
+        <ScrollReveal delay={0.2}>
+          <div className="mt-10 sm:mt-16 bg-primary rounded-xl p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4 sm:gap-5">
+              <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-lg bg-highlight/20 text-highlight shrink-0">
+                <ShoppingBag size={28} className="sm:w-8 sm:h-8" />
+              </div>
+              <div>
+                <h3 className="text-lg sm:text-xl font-display font-bold text-primary-foreground mb-1">
+                  Vitrine de Produtos
+                </h3>
+                <p className="text-primary-foreground/70 text-xs sm:text-sm leading-relaxed max-w-lg">
+                  Explore nosso catálogo completo com preços, detalhes e disponibilidade em tempo real.
+                </p>
+              </div>
+            </div>
+            <Link
+              to="/vitrine"
+              className="bg-highlight text-highlight-foreground px-6 sm:px-8 py-3 rounded-md font-medium text-sm hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2 whitespace-nowrap shrink-0"
+            >
+              Acessar vitrine
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

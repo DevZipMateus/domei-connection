@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 import { motion } from "framer-motion";
 
@@ -88,6 +89,12 @@ const Hero = () => {
             >
               Conheça nossos produtos
             </a>
+            <Link
+              to="/vitrine"
+              className="bg-highlight text-highlight-foreground px-6 py-3 rounded-md font-medium text-sm text-center hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+            >
+              Acesse nossa vitrine
+            </Link>
           </motion.div>
         </div>
       </div>
