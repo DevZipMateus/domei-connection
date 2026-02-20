@@ -6,6 +6,7 @@ import imgPurificador from "@/assets/product-purificador.jpg";
 import imgAnalise from "@/assets/product-analise.jpg";
 import imgCromatografia from "@/assets/product-cromatografia.jpg";
 import imgVidrarias from "@/assets/product-vidrarias.jpg";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const products = [
   {
@@ -67,42 +68,43 @@ const Products = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16 bg-white/70 backdrop-blur-sm rounded-xl px-8 py-8">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Nossos produtos
-          </h2>
-          <p className="text-foreground">
-            Linha completa de produtos para laboratórios e indústrias com qualidade e procedência garantidas.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="max-w-3xl mx-auto text-center mb-16 bg-white/70 backdrop-blur-sm rounded-xl px-8 py-8">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+              Nossos produtos
+            </h2>
+            <p className="text-foreground">
+              Linha completa de produtos para laboratórios e indústrias com qualidade e procedência garantidas.
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((product) => (
-            <div
-              key={product.title}
-              className="relative rounded-lg overflow-hidden group hover:shadow-lg transition-all min-h-[260px] flex flex-col justify-end"
-            >
-              {/* Card background image */}
-              <img
-                src={product.image}
-                alt={product.alt}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
+          {products.map((product, index) => (
+            <ScrollReveal key={product.title} delay={0.08 * index}>
+              <div className="relative rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-500 min-h-[260px] flex flex-col justify-end cursor-pointer">
+                {/* Card background image */}
+                <img
+                  src={product.image}
+                  alt={product.alt}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/5 transition-all duration-500 group-hover:from-black/90 group-hover:via-black/50" />
 
-              {/* Content */}
-              <div className="relative z-10 p-7">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-md bg-white/15 backdrop-blur-sm text-white mb-4 border border-white/20">
-                  <product.icon size={22} />
+                {/* Content */}
+                <div className="relative z-10 p-7 transition-transform duration-500 group-hover:-translate-y-1">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-md bg-white/15 backdrop-blur-sm text-white mb-4 border border-white/20 transition-all duration-300 group-hover:bg-white/25 group-hover:scale-110">
+                    <product.icon size={22} />
+                  </div>
+                  <h3 className="text-base font-display font-semibold text-white mb-2">
+                    {product.title}
+                  </h3>
+                  <p className="text-white/75 text-sm leading-relaxed">
+                    {product.description}
+                  </p>
                 </div>
-                <h3 className="text-base font-display font-semibold text-white mb-2">
-                  {product.title}
-                </h3>
-                <p className="text-white/75 text-sm leading-relaxed">
-                  {product.description}
-                </p>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
