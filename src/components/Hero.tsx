@@ -8,10 +8,11 @@ const Hero = () => {
     >
       {/* Background image */}
       <div className="absolute inset-0">
-        <img
-          src={heroBg}
-          alt="Equipamentos laboratoriais e vidrarias científicas"
-          className="w-full h-full object-cover"
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          style={{ backgroundImage: `url(${heroBg})` }}
+          role="img"
+          aria-label="Equipamentos laboratoriais e vidrarias científicas"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
       </div>

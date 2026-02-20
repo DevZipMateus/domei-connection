@@ -6,7 +6,12 @@ const Contact = () => {
     <section id="contato" className="relative py-20 md:py-28 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={contactBg} alt="Laboratório moderno com equipamentos de análise" className="w-full h-full object-cover" />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          style={{ backgroundImage: `url(${contactBg})` }}
+          role="img"
+          aria-label="Laboratório moderno com equipamentos de análise"
+        />
         <div className="absolute inset-0 bg-muted/93" />
       </div>
 

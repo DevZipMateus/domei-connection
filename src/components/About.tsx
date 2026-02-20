@@ -6,7 +6,12 @@ const About = () => {
     <section id="sobre" className="relative py-20 md:py-28 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={aboutBg} alt="Microscópio em laboratório de pesquisa" className="w-full h-full object-cover" />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          style={{ backgroundImage: `url(${aboutBg})` }}
+          role="img"
+          aria-label="Microscópio em laboratório de pesquisa"
+        />
         <div className="absolute inset-0 bg-white/92" />
       </div>
 
