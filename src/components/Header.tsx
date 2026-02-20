@@ -22,10 +22,8 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
-          : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary ${
+        scrolled ? "shadow-sm" : ""
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4">
@@ -39,9 +37,7 @@ const Header = () => {
             <a
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-foreground ${
-                scrolled ? "text-muted-foreground" : "text-primary-foreground/80"
-              }`}
+              className="text-sm font-medium transition-colors text-primary-foreground/80 hover:text-primary-foreground"
             >
               {link.label}
             </a>
@@ -58,7 +54,7 @@ const Header = () => {
 
         {/* Mobile toggle */}
         <button
-          className={`md:hidden p-2 ${scrolled ? "text-foreground" : "text-primary-foreground"}`}
+          className="md:hidden p-2 text-primary-foreground"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
         >
