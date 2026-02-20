@@ -83,12 +83,6 @@ const Hero = () => {
             >
               Solicitar orçamento
             </a>
-            <a
-              href="#produtos"
-              className="bg-white/10 text-white border border-white/30 px-6 py-3 rounded-md font-medium text-sm text-center hover:bg-white/20 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
-            >
-              Conheça nossos produtos
-            </a>
             <Link
               to="/vitrine"
               className="bg-highlight text-highlight-foreground px-6 py-3 rounded-md font-medium text-sm text-center hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
