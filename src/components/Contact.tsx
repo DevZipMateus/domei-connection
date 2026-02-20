@@ -1,9 +1,16 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import contactBg from "@/assets/contact-bg.jpg";
 
 const Contact = () => {
   return (
-    <section id="contato" className="py-20 md:py-28 section-alt">
-      <div className="container mx-auto px-4">
+    <section id="contato" className="relative py-20 md:py-28 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0">
+        <img src={contactBg} alt="Laboratório moderno com equipamentos de análise" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-muted/93" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             Entre em contato
@@ -48,7 +55,7 @@ const Contact = () => {
             ].map((item) => (
               <div
                 key={item.label}
-                className="flex items-start gap-4 bg-background border border-border rounded-lg p-5"
+                className="flex items-start gap-4 bg-background/80 backdrop-blur-sm border border-border rounded-lg p-5"
               >
                 <div className="inline-flex items-center justify-center w-10 h-10 rounded-md bg-primary text-primary-foreground shrink-0">
                   <item.icon size={18} />
@@ -82,7 +89,7 @@ const Contact = () => {
           </div>
 
           {/* Mapa */}
-          <div className="rounded-lg overflow-hidden border border-border h-[400px] lg:h-auto">
+          <div className="rounded-lg overflow-hidden border border-border h-[400px] lg:h-auto shadow-md">
             <iframe
               title="Localização Domei Comercial"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.8!2d-49.27!3d-16.68!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef6c0e0000001%3A0x1!2sSetor+Ja%C3%B3%2C+Goi%C3%A2nia+-+GO!5e0!3m2!1spt-BR!2sbr!4v1700000000000"

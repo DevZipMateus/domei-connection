@@ -1,4 +1,5 @@
 import { Wrench, FlaskRound, Settings } from "lucide-react";
+import servicesBg from "@/assets/services-bg.jpg";
 
 const services = [
   {
@@ -23,8 +24,14 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="servicos" className="py-20 md:py-28 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="servicos" className="relative py-20 md:py-28 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0">
+        <img src={servicesBg} alt="Técnica realizando manutenção em equipamento laboratorial" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-white/92" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             Nossos serviços
