@@ -1,21 +1,22 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "Início", href: "#inicio" },
-  { label: "Sobre", href: "#sobre" },
-  { label: "Produtos", href: "#produtos" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Contato", href: "#contato" },
-  { label: "Vitrine", href: "/vitrine", isRoute: true },
+  { label: "Início", section: "inicio" },
+  { label: "Sobre", section: "sobre" },
+  { label: "Produtos", section: "produtos" },
+  { label: "Serviços", section: "servicos" },
+  { label: "Contato", section: "contato" },
+  { label: "Vitrine", route: "/vitrine" },
 ];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === "/";
 
   useEffect(() => {
@@ -24,7 +25,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close menu on resize to desktop
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth >= 768) setMenuOpen(false);
@@ -33,6 +33,19 @@ const Header = () => {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  const handleNavClick = (link: (typeof navLinks)[number]) => {
+    setMenuOpen(false);
+    if (link.route) {
+      navigate(link.route);
+      return;
+    }
+    if (isHome) {
+      document.getElementById(link.section!)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(`/#${link.section}`);
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary ${
@@ -40,20 +53,20 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-14 sm:h-16 md:h-20 px-4 sm:px-6">
-        <a href={isHome ? "#inicio" : "/"} className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="Logo Domei Comercial" className="h-7 sm:h-8 md:h-10" />
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8" aria-label="Navegação principal">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.isRoute ? link.href : (isHome ? link.href : `/${link.href}`)}
-              className="text-sm font-medium transition-colors text-primary-foreground/80 hover:text-primary-foreground whitespace-nowrap"
+            <button
+              key={link.label}
+              onClick={() => handleNavClick(link)}
+              className="text-sm font-medium transition-colors text-primary-foreground/80 hover:text-primary-foreground whitespace-nowrap bg-transparent border-none cursor-pointer"
             >
               {link.label}
-            </a>
+            </button>
           ))}
           <a
             href="https://wa.me/5562981642830"
@@ -80,14 +93,13 @@ const Header = () => {
         <nav className="lg:hidden bg-primary border-t border-primary-foreground/10" aria-label="Menu mobile">
           <div className="container mx-auto px-4 sm:px-6 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.isRoute ? link.href : (isHome ? link.href : `/${link.href}`)}
-                onClick={() => setMenuOpen(false)}
-                className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/5 py-3 px-3 rounded-md text-sm font-medium transition-all"
+              <button
+                key={link.label}
+                onClick={() => handleNavClick(link)}
+                className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/5 py-3 px-3 rounded-md text-sm font-medium transition-all text-left bg-transparent border-none cursor-pointer"
               >
                 {link.label}
-              </a>
+              </button>
             ))}
             <a
               href="https://wa.me/5562981642830"
