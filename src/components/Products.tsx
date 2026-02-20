@@ -55,11 +55,11 @@ const products = [
 
 const Products = () => {
   return (
-    <section id="produtos" className="relative py-20 md:py-28 overflow-hidden">
+    <section id="produtos" className="relative py-14 sm:py-20 md:py-28 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          className="absolute inset-0 bg-cover bg-center md:bg-fixed"
           style={{ backgroundImage: `url(${productsBg})` }}
           role="img"
           aria-label="Reagentes químicos coloridos em frascos de laboratório"
@@ -67,22 +67,22 @@ const Products = () => {
         <div className="absolute inset-0 bg-muted/93" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6">
         <ScrollReveal>
-          <div className="max-w-3xl mx-auto text-center mb-16 bg-white/70 backdrop-blur-sm rounded-xl px-8 py-8">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-16 bg-white/70 backdrop-blur-sm rounded-xl px-5 sm:px-8 py-6 sm:py-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-foreground mb-3 sm:mb-4">
               Nossos produtos
             </h2>
-            <p className="text-foreground">
+            <p className="text-foreground text-sm sm:text-base">
               Linha completa de produtos para laboratórios e indústrias com qualidade e procedência garantidas.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {products.map((product, index) => (
             <ScrollReveal key={product.title} delay={0.08 * index}>
-              <div className="relative rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-500 min-h-[260px] flex flex-col justify-end cursor-pointer">
+              <div className="relative rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-500 min-h-[220px] sm:min-h-[260px] flex flex-col justify-end cursor-pointer">
                 {/* Card background image */}
                 <img
                   src={product.image}
@@ -92,14 +92,14 @@ const Products = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/5 transition-all duration-500 group-hover:from-black/90 group-hover:via-black/50" />
 
                 {/* Content */}
-                <div className="relative z-10 p-7 transition-transform duration-500 group-hover:-translate-y-1">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-md bg-white/15 backdrop-blur-sm text-white mb-4 border border-white/20 transition-all duration-300 group-hover:bg-white/25 group-hover:scale-110">
-                    <product.icon size={22} />
+                <div className="relative z-10 p-5 sm:p-7 transition-transform duration-500 group-hover:-translate-y-1">
+                  <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-md bg-white/15 backdrop-blur-sm text-white mb-3 sm:mb-4 border border-white/20 transition-all duration-300 group-hover:bg-white/25 group-hover:scale-110">
+                    <product.icon size={20} className="sm:w-[22px] sm:h-[22px]" />
                   </div>
-                  <h3 className="text-base font-display font-semibold text-white mb-2">
+                  <h3 className="text-sm sm:text-base font-display font-semibold text-white mb-1 sm:mb-2">
                     {product.title}
                   </h3>
-                  <p className="text-white/75 text-sm leading-relaxed">
+                  <p className="text-white/75 text-xs sm:text-sm leading-relaxed">
                     {product.description}
                   </p>
                 </div>

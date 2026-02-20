@@ -5,21 +5,21 @@ const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* Background image */}
       <div className="absolute inset-0">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          className="absolute inset-0 bg-cover bg-center md:bg-fixed"
           style={{ backgroundImage: `url(${heroBg})` }}
           role="img"
           aria-label="Equipamentos laboratoriais e vidrarias científicas"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/40 md:from-black/80 md:via-black/60 md:to-black/40" />
       </div>
 
-      {/* Animated particles/dots decorative */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Animated particles - hidden on small screens */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
@@ -43,16 +43,16 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 pt-20">
-        <div className="max-w-2xl">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20">
+        <div className="max-w-xl sm:max-w-xl md:max-w-2xl">
           <motion.div
-            className="w-16 h-0.5 bg-white/50 mb-8"
+            className="w-12 sm:w-16 h-0.5 bg-white/50 mb-6 sm:mb-8"
             initial={{ width: 0 }}
-            animate={{ width: 64 }}
+            animate={{ width: "4rem" }}
             transition={{ duration: 0.8, delay: 0.2 }}
           />
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4 sm:mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
@@ -60,7 +60,7 @@ const Hero = () => {
             Domei Comercial
           </motion.h1>
           <motion.h2
-            className="text-lg md:text-xl text-white/80 leading-relaxed mb-8"
+            className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed mb-6 sm:mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
@@ -69,7 +69,7 @@ const Hero = () => {
             que exigem qualidade e confiabilidade desde 2001.
           </motion.h2>
           <motion.div
-            className="flex flex-wrap gap-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
@@ -78,13 +78,13 @@ const Hero = () => {
               href="https://wa.me/5562981642830"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-foreground px-6 py-3 rounded-md font-medium text-sm hover:bg-white/90 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white text-foreground px-6 py-3 rounded-md font-medium text-sm text-center hover:bg-white/90 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               Solicitar orçamento
             </a>
             <a
               href="#produtos"
-              className="bg-white/10 text-white border border-white/30 px-6 py-3 rounded-md font-medium text-sm hover:bg-white/20 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white/10 text-white border border-white/30 px-6 py-3 rounded-md font-medium text-sm text-center hover:bg-white/20 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               Conheça nossos produtos
             </a>
@@ -93,7 +93,7 @@ const Hero = () => {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };
