@@ -32,7 +32,7 @@ const Services = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-16 bg-white/70 backdrop-blur-sm rounded-xl px-8 py-8">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             Nossos serviços
           </h2>
